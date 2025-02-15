@@ -44,10 +44,15 @@
 </head>
 <body>
     <div class="container">
-        <div class="code-box" id="code">.scode https://example.com</div>
+        <div class="code-box" id="code"></div>
         <button class="copy-btn" onclick="copyCode()">Скопировать</button>
     </div>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const url = window.location.href;
+            document.getElementById("code").innerText = `.scode ${url}`;
+        });
+
         function copyCode() {
             const text = document.getElementById("code").innerText;
             navigator.clipboard.writeText(text).then(() => {
