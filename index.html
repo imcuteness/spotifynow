@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.scode копирование</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1e1e1e;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            background: #282c34;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .code-box {
+            font-size: 20px;
+            background: #444;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .copy-btn {
+            background: #61dafb;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .copy-btn:hover {
+            background: #4ec3e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code-box" id="code">.scode https://example.com</div>
+        <button class="copy-btn" onclick="copyCode()">Скопировать</button>
+    </div>
+    <script>
+        function copyCode() {
+            const text = document.getElementById("code").innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Скопировано: " + text);
+            }).catch(err => {
+                console.error("Ошибка копирования: ", err);
+            });
+        }
+    </script>
+</body>
+</html>
